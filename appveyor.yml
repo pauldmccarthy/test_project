@@ -3,16 +3,20 @@ environment:
     TEST_DEPENDS: "pytest numpy nibabel"
 
   matrix:
-    - PYTHON: "C:\\Miniconda-x64"
-      PYTHON_VERSION: "2.7"
+    - PYTHON_VERSION: "2.7"
+      PYTHON: "C:\\Miniconda-x64"
+      MINICONDA: "C:\\Miniconda-x64"
       PYTHON_ARCH: "64"
-    - PYTHON: "C:\\Miniconda36-x64"
-      PYTHON_VERSION: "3.6"
+    - PYTHON_VERSION: "3.6"
+      PYTHON: "C:\\Miniconda36-x64"
+      MINICONDA: "C:\\Miniconda36-x64"
       PYTHON_ARCH: "64"
 
 build: false
 
 install:
+  - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
+  - conda update -q conda
   - conda create --yes -n test_env python=%PYTHON_VERSION% %TEST_DEPENDS%
   - activate test_env
 
