@@ -14,9 +14,9 @@ build: false
 
 install:
   - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
-  - conda update --yes -q conda
-  - conda create --yes -n test_env python=%PYTHON_VERSION%
-  - conda install -c conda-forge pytest numpy nibabel
+  - conda update  --yes -q conda
+  - conda create  --yes -n test_env python=%PYTHON_VERSION%
+  - conda install --yes -c conda-forge pytest numpy nibabel
   - activate test_env
 
 test_script:
