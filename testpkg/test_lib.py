@@ -7,6 +7,7 @@ import os.path as op
 from . import lib
 
 import fsl.data.image as fslimage
+import nibabel as nib
 
 
 def _test_thing():
@@ -25,7 +26,7 @@ def _test_thing():
 
 
             lib.make_random_image(fname, dims=d)
-            img = fslimage.Image(fname)
+            img = nib.load(fname)
             assert tuple(img.shape) == dims
 
 
