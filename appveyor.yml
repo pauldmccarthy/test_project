@@ -16,7 +16,7 @@ build: false
 
 install:
   - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
-  - conda update -q conda
+  - conda update --yes -q conda
   - conda create --yes -n test_env python=%PYTHON_VERSION% %TEST_DEPENDS%
   - activate test_env
 
