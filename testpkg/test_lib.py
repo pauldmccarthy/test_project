@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 
+import os
 import os.path as op
 
 from . import lib
@@ -18,10 +19,13 @@ def _test_thing():
 
         fname = op.join(testdir, 'tensor_image.nii')
 
-        for d in dims:
+        for i, d in enumerate(dims):
+
+            print('{}: {} - {}'.format(i, testdir, os.listdir(testdir)))
+
+
             lib.make_random_image(fname, dims=d)
             img = fslimage.Image(fname)
-
             assert tuple(img.shape) == dims
 
 
