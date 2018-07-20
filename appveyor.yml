@@ -17,6 +17,7 @@ install:
   - conda update  --yes -q conda
   - conda create  --yes -n test_env python=%PYTHON_VERSION%
   - conda install --yes -c conda-forge pytest numpy nibabel
+  - pip install fslpy
   - activate test_env
 
 test_script:

@@ -5,6 +5,8 @@ import os.path as op
 
 from . import lib
 
+import fsl.data.image as fslimage
+
 
 def _test_thing():
 
@@ -18,6 +20,9 @@ def _test_thing():
 
         for d in dims:
             lib.make_random_image(fname, dims=d)
+            img = fslimage.Image(fname)
+
+            assert tuple(img.shape) == dims
 
 
 
