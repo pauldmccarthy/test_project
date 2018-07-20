@@ -25,8 +25,9 @@ def _test_thing():
             print('{}: {} - {}'.format(i, testdir, os.listdir(testdir)))
 
             lib.make_random_image(fname, dims=d)
-            img = nib.load(fname)
+            img = fslimage.Image(fname)
             assert tuple(img.shape) == d
+            img = None
 
 
 
