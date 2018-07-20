@@ -10,7 +10,11 @@ environment:
       PYTHON_VERSION: "3.6"
       PYTHON_ARCH: "64"
 
-test_script:
+build: false
+
+install:
   - conda create --yes -n test_env python=%PYTHON_VERSION% %TEST_DEPENDS%
   - activate test_env
+
+test_script:
   - pytest
