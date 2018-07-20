@@ -1,6 +1,4 @@
 environment:
-  global:
-    TEST_DEPENDS: "pytest numpy nibabel"
 
   matrix:
     - PYTHON_VERSION: "2.7"
@@ -17,7 +15,8 @@ build: false
 install:
   - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
   - conda update --yes -q conda
-  - conda create --yes -n test_env python=%PYTHON_VERSION% %TEST_DEPENDS%
+  - conda create --yes -n test_env python=%PYTHON_VERSION%
+  - conda install -c conda-forge pytest numpy nibabel
   - activate test_env
 
 test_script:
